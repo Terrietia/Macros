@@ -2,6 +2,8 @@ Sub Macro1()
 '
 ' Macro1 Macro
 '
+' AUTHOR: Alvin Nguyen
+' DESCRIPTION: Macro to format for Body of IEEE Conference paper
 '
     If ActiveWindow.View.SplitSpecial <> wdPaneNone Then
         ActiveWindow.Panes(2).Close
