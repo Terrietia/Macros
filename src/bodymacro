@@ -5,20 +5,18 @@ Sub Macro1()
 ' AUTHOR: Alvin Nguyen
 ' DESCRIPTION: Macro to format for Body of IEEE Conference paper
 '
-    If ActiveWindow.View.SplitSpecial <> wdPaneNone Then
-        ActiveWindow.Panes(2).Close
-    End If
-    If ActiveWindow.ActivePane.View.Type <> wdPrintView Then
-        ActiveWindow.ActivePane.View.Type = wdPrintView
-    End If
+    ' Setting up two columns
     With Selection.PageSetup.TextColumns
         .SetCount NumColumns:=2
         .EvenlySpaced = True
         .LineBetween = False
         .Width = InchesToPoints(6.5)
     End With
+    ' Changing font to Times New Roman 
     Selection.Font.Name = "Times New Roman"
+    ' Changing paragraph alignment to justified
     Selection.ParagraphFormat.Alignment = wdAlignParagraphJustify
+    ' Paragraph formatting
     With Selection.ParagraphFormat
         .LeftIndent = InchesToPoints(0)
         .RightIndent = InchesToPoints(0)
@@ -53,6 +51,7 @@ Sub Macro1()
         .AddSpaceBetweenFarEastAndDigit = True
         .BaseLineAlignment = wdBaselineAlignAuto
     End With
+    ' Setting up the page margins and lines
     With Selection.PageSetup
         .LineNumbering.Active = False
         .Orientation = wdOrientPortrait
